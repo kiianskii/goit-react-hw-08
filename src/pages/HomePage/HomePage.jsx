@@ -2,7 +2,7 @@
 
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <h1 className="hero-header-home">Welcome to Phone Book!</h1>
   )
 }
 
