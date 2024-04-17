@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import s from "./SearchBox.module.css"
-import { changeSearchStr } from "../../redux/filtersSlice"
+import { changeSearchStr } from "../../redux/filter/slice"
+
 
 function SearchBox({ searchStr }) {
 	const dispatch = useDispatch()
