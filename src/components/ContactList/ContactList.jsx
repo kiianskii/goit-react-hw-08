@@ -8,6 +8,7 @@ import { selectIsError, selectIsLoading } from "../../redux/contacts/slice"
 import { fetchContactsThunk } from "../../redux/contacts/operations"
 
 
+
 function ContactList() {
 	const searchStr = useSelector(selectFilter)
 	const isLoading = useSelector(selectIsLoading)
