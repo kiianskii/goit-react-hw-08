@@ -77,3 +77,6 @@ button:focus-visible {
   text-align: center;
   margin: 50px 0;
 }
+.auth-form {
+  margin: 0 auto;
+}

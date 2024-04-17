@@ -23,7 +23,7 @@ function RegistrationPage() {
 		password: '',
 		email: '',
 	}
-	return 	<div className="">
+	return 	<div className="auth-form">
 			<Formik onSubmit={handleSubmit} initialValues={initialValues}>
 				<Form className={s.form}>
 					<Field className={s.input} type='text' name='name' placeholder='Enter your name' />
