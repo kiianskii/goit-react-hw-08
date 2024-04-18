@@ -13,6 +13,7 @@ import HomePage from './pages/HomePage/HomePage'
 import Layout from './components/Layout/Layout'
 import Loader from './components/Loader/Loader'
 import { selectIsRefreshing } from './redux/auth/slice'
+import { Toaster } from 'react-hot-toast'
 
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage/RegistrationPage'))
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'))
@@ -41,7 +42,8 @@ function App() {
           			<Route path='/register' element={<RestrictedRoute redirectTo="/contacts" component={<RegistrationPage />} />} />
 					</Route>
 					<Route path='*' element={<ErrorPage />} />
-				 </Routes>
+			  </Routes>
+			  <Toaster/>
 </Suspense>
 
   )
