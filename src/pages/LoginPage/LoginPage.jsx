@@ -1,19 +1,18 @@
 import { useDispatch } from "react-redux"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { loginThunk } from "../../redux/auth/operations"
-import { toast } from "react-toastify"
+
 import { Field, Form, Formik } from "formik"
 import s from "./LoginPage.module.css"
 
 function LoginPage() {
-  const dispatch = useDispatch()
-	const navigate = useNavigate()
+	const dispatch = useDispatch()
+	
+
 	const handleSubmit = values => {
 		dispatch(loginThunk(values))
-			.unwrap()
-			.then(() => navigate('/'))
-			.catch(() => toast.error('Email or password invalid'))
 	}
+
 	const initialValues = {
 		email: '',
 		password: '',

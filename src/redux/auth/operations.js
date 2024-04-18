@@ -1,9 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
+export const setToken = token => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`
+}
+export const clearToken = () => {
+    axios.defaults.headers.common.Authorization = ``
+}
+
+
 export const registerThunk = createAsyncThunk("auth/register", async (credentials, thunkApi) => {
     try {
-        const { data } = await axios.post("/users/signup", credentials)
+        const { data } = await axios.post("users/signup", credentials)
+        setToken(data.token)
         return data
     } catch (error) {
         return thunkApi.rejectWithValue(error.message)
@@ -12,7 +21,8 @@ export const registerThunk = createAsyncThunk("auth/register", async (credential
 
 export const loginThunk = createAsyncThunk("auth/login", async (credentials, thunkApi) => {
     try {
-        const { data } = await axios.post("/users/login", credentials)
+        const { data } = await axios.post("users/login", credentials)
+        setToken(data.token)
         return data
     } catch (error) {
         return thunkApi.rejectWithValue(error.message)
@@ -21,7 +31,7 @@ export const loginThunk = createAsyncThunk("auth/login", async (credentials, thu
 
 export const logoutThunk = createAsyncThunk("auth/logout", async (_, thunkApi) => {
     try {
-        await axios.post("/users/logout")
+        await axios.post("users/logout")
     } catch (error) {
         return thunkApi.rejectWithValue(error.message)
     }
@@ -34,16 +44,9 @@ export const refreshThunk = createAsyncThunk('auth/refresh', async (_, thunkApi)
 	}
 	setToken(savedToken)
 	try {
-		const { data } = await axios.get('/users/current')
+		const { data } = await axios.get('users/current')
 		return data
 	} catch (error) {
 		return thunkApi.rejectWithValue(error.message)
 	}
 })
-
-export const setToken = token => {
-	axios.defaults.headers.common.Authorization = `Bearer ${token}`
-}
-export const clearToken = () => {
-	axios.defaults.headers.common.Authorization = ``
-}

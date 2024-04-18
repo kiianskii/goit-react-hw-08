@@ -16,7 +16,7 @@ const slice = createSlice({
     name: "auth",
     initialState,
     selectors: {
-        selectToken: state => state.token,
+    selectToken: state => state.token,
 		selectUser: state => state.user,
 		selectIsLoggedIn: state => state.isLoggedIn,
     },

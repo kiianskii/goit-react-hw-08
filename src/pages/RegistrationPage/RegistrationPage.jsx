@@ -1,22 +1,16 @@
 import { useDispatch } from "react-redux"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { registerThunk } from "../../redux/auth/operations"
-import { toast } from "react-toastify"
+
 import { Field, Form, Formik } from "formik"
 import s from "./RegistrationPage.module.css"
 
 
 function RegistrationPage() {
   const dispatch = useDispatch()
-	const navigate = useNavigate()
+
 	const handleSubmit = values => {
 		dispatch(registerThunk(values))
-			.unwrap()
-			.then(data => {
-				toast.success(`Welcome, ${data.user.name}!`)
-				navigate('/')
-			})
-			.catch(() => toast.error('Credentials invalid'))
 	}
 	const initialValues = {
 		name: '',
