@@ -80,3 +80,23 @@ button:focus-visible {
 .auth-form {
   margin: 0 auto;
 }
+
+.loader-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25%;
+  margin-left: 0;
+}
+
+.error-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 25%;
+}
+
+.title-error {
+  margin-left: 0;
+}

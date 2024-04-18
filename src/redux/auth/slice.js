@@ -10,6 +10,7 @@ const initialState = {
   token: "",
   isLoggedIn: false,
   isRefreshing: false,
+  
 }
 
 const slice = createSlice({
@@ -18,7 +19,8 @@ const slice = createSlice({
     selectors: {
     selectToken: state => state.token,
 		selectUser: state => state.user,
-		selectIsLoggedIn: state => state.isLoggedIn,
+      selectIsLoggedIn: state => state.isLoggedIn,
+    selectIsRefreshing: state => state.isRefreshing,
     },
     extraReducers: builder => {
         builder
@@ -40,10 +42,17 @@ const slice = createSlice({
         .addCase(refreshThunk.fulfilled, (state, { payload }) => {
 				state.user.name = payload.name
 				state.user.email = payload.email
-				state.isLoggedIn = true
+          state.isLoggedIn = true
+          state.isRefreshing = false
+        })
+          .addCase(refreshThunk.pending, state => {
+				state.isRefreshing = true
+			})
+			.addCase(refreshThunk.rejected, state => {
+				state.isRefreshing = false
 			})
     }
 })
 
 export const authReducer = slice.reducer
-export const { selectToken, selectIsLoggedIn, selectUser } = slice.selectors
+export const { selectToken, selectIsLoggedIn, selectUser, selectIsRefreshing } = slice.selectors
