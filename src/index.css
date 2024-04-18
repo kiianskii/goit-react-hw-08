@@ -75,7 +75,7 @@ button:focus-visible {
 }
 .hero-header-home {
   text-align: center;
-  margin: 50px 0;
+  margin: 100px 0;
 }
 .auth-form {
   margin: 0 auto;
@@ -104,4 +104,12 @@ button:focus-visible {
 .active {
   color: rgb(13, 10, 180);
   font-weight: 700;
+}
+.red {
+  color: red;
+  font-size: 12px;
+}
+
+p {
+  margin: 0;
 }
