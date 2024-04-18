@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
+import {  NavLink } from "react-router-dom"
 import s from "./AuthNav.module.css"
 
 
 function AuthNav() {
   return (
     <div className={s.container}>
-      <Link to="/register">Register</Link>
-      <Link to="/login">Log In</Link>
+      <NavLink to="/register">Register</NavLink>
+      <NavLink to="/login">Log In</NavLink>
     </div>
   )
 }

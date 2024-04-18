@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import s from "./UserMenu.module.css"
 import { useDispatch } from "react-redux"
 import { logoutThunk } from "../../redux/auth/operations"
@@ -9,7 +9,7 @@ function UserMenu() {
 
   return (
     <div className={s.container}>
-      <Link to="/contacts">Phone Book</Link>
+      <NavLink to="/contacts">Phone Book</NavLink>
       <button onClick={() => {
         navigate('/')
         dispatch(logoutThunk())

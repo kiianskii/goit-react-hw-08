@@ -100,3 +100,8 @@ button:focus-visible {
 .title-error {
   margin-left: 0;
 }
+
+.active {
+  color: rgb(13, 10, 180);
+  font-weight: 700;
+}
