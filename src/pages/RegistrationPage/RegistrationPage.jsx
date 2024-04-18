@@ -26,9 +26,19 @@ function RegistrationPage() {
 	return 	<div className="auth-form">
 			<Formik onSubmit={handleSubmit} initialValues={initialValues}>
 				<Form className={s.form}>
-					<Field className={s.input} type='text' name='name' placeholder='Enter your name' />
-					<Field className={s.input} type='text' name='email' placeholder='Enter your email' />
-					<Field className={s.input} type='password' name='password' placeholder='Enter your password' />
+				<label>
+					Name
+				<Field className={s.input} type='text' name='name' placeholder='Enter your name' />
+				</label>
+				<label>
+					Email
+				<Field className={s.input} type='text' name='email' placeholder='Enter your email' />
+				</label>
+				<label>
+					Password
+				<Field className={s.input} type='password' name='password' placeholder='Enter your password' />
+				</label>
+					
 					<button className='btn border' type='submit'>
 						Register
 					</button>
