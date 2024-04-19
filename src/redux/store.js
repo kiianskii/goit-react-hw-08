@@ -8,19 +8,20 @@ import storage from 'redux-persist/lib/storage'
 import { authReducer } from './auth/slice'
 
 
-const persistConfig = {
+const authPersistConfig = {
 	key: 'auth',
 	version: 1,
 	storage,
 	whitelist: ['token'],
 }
 
+const persistedReducer = persistReducer(authPersistConfig, authReducer)
 
 export const store = configureStore({
 	reducer: {
 		contacts: contactsReducer,
 		filter: filterReducer,
-		auth: persistReducer(persistConfig, authReducer)
+		auth: persistedReducer,
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({
